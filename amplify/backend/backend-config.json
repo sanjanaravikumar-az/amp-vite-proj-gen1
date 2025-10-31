@@ -1,0 +1,26 @@
+{
+  "api": {
+    "viteproject": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "custom": {
+    "customResourceb21d659e": {
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    }
+  }
+}
