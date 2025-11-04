@@ -16,7 +16,11 @@
         "viteproject": {}
       },
       "custom": {
-        "customResourceb21d659e": {}
+        "customResourceb21d659e": {},
+        "customNotifications": {},
+        "customSqsQueue": {},
+        "customNotifs": {},
+        "customSQS": {}
       }
     }
   }

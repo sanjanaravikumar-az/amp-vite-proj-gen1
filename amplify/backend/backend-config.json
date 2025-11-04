@@ -18,7 +18,15 @@
     }
   },
   "custom": {
+    "customNotifs": {
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    },
     "customResourceb21d659e": {
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    },
+    "customSQS": {
       "providerPlugin": "awscloudformation",
       "service": "customCDK"
     }
