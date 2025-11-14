@@ -19,7 +19,7 @@
       "shoulddeepmergedirectiveconfigdefaults": false,
       "populateownerfieldforstaticgroupauth": true,
       "subscriptionsinheritprimaryauth": false,
-      "enablegen2migration": false
+      "enablegen2migration": true
     },
     "frontend-ios": {
       "enablexcodeintegration": true

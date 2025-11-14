@@ -23,5 +23,28 @@
         "customSQS": {}
       }
     }
+  },
+  "migrate": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-viteproject-migrate-bb2e8-authRole",
+      "UnauthRoleArn": "arn:aws:iam::040344563313:role/amplify-viteproject-migrate-bb2e8-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::040344563313:role/amplify-viteproject-migrate-bb2e8-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-viteproject-migrate-bb2e8-deployment",
+      "UnauthRoleName": "amplify-viteproject-migrate-bb2e8-unauthRole",
+      "StackName": "amplify-viteproject-migrate-bb2e8",
+      "StackId": "arn:aws:cloudformation:us-east-1:040344563313:stack/amplify-viteproject-migrate-bb2e8/39879390-c17b-11f0-afd8-122517db9c5d",
+      "AmplifyAppId": "d28v01jvdu3559"
+    },
+    "categories": {
+      "api": {
+        "viteproject": {}
+      },
+      "custom": {
+        "customNotifs": {},
+        "customResourceb21d659e": {},
+        "customSQS": {}
+      }
+    }
   }
 }
