@@ -1,40 +1,15 @@
 {
-  "dev": {
+  "newenv": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-viteproject-dev-0c551-authRole",
-      "UnauthRoleArn": "arn:aws:iam::040344563313:role/amplify-viteproject-dev-0c551-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::040344563313:role/amplify-viteproject-dev-0c551-authRole",
+      "AuthRoleName": "amplify-viteproject-newenv-324f9-authRole",
+      "UnauthRoleArn": "arn:aws:iam::079385506759:role/amplify-viteproject-newenv-324f9-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::079385506759:role/amplify-viteproject-newenv-324f9-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-viteproject-dev-0c551-deployment",
-      "UnauthRoleName": "amplify-viteproject-dev-0c551-unauthRole",
-      "StackName": "amplify-viteproject-dev-0c551",
-      "StackId": "arn:aws:cloudformation:us-east-1:040344563313:stack/amplify-viteproject-dev-0c551/31468c90-b663-11f0-8df2-0affeef979c1",
-      "AmplifyAppId": "d28v01jvdu3559"
-    },
-    "categories": {
-      "api": {
-        "viteproject": {}
-      },
-      "custom": {
-        "customResourceb21d659e": {},
-        "customNotifications": {},
-        "customSqsQueue": {},
-        "customNotifs": {},
-        "customSQS": {}
-      }
-    }
-  },
-  "migrate": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-viteproject-migrate-bb2e8-authRole",
-      "UnauthRoleArn": "arn:aws:iam::040344563313:role/amplify-viteproject-migrate-bb2e8-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::040344563313:role/amplify-viteproject-migrate-bb2e8-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-viteproject-migrate-bb2e8-deployment",
-      "UnauthRoleName": "amplify-viteproject-migrate-bb2e8-unauthRole",
-      "StackName": "amplify-viteproject-migrate-bb2e8",
-      "StackId": "arn:aws:cloudformation:us-east-1:040344563313:stack/amplify-viteproject-migrate-bb2e8/39879390-c17b-11f0-afd8-122517db9c5d",
-      "AmplifyAppId": "d28v01jvdu3559"
+      "DeploymentBucketName": "amplify-viteproject-newenv-324f9-deployment",
+      "UnauthRoleName": "amplify-viteproject-newenv-324f9-unauthRole",
+      "StackName": "amplify-viteproject-newenv-324f9",
+      "StackId": "arn:aws:cloudformation:us-east-1:079385506759:stack/amplify-viteproject-newenv-324f9/ea1ce950-d53d-11f0-b1e4-0affdb8e3dd3",
+      "AmplifyAppId": "d28s7lx1h6oig1"
     },
     "categories": {
       "api": {
