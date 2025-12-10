@@ -1,4 +1,4 @@
-import * as cdk from 'aws-cdk-lib';
+import * as mycdkstack from 'aws-cdk-lib';
 import * as AmplifyHelpers from '@aws-amplify/cli-extensibility-helper';
 import { AmplifyDependentResourcesAttributes } from '../../types/amplify-dependent-resources-ref';
 import { Construct } from 'constructs';
@@ -7,11 +7,12 @@ import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as iam from 'aws-cdk-lib/aws-iam';
 
-export class cdkStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps, amplifyResourceProps?: AmplifyHelpers.AmplifyResourceProps) {
+export class cdkStack extends mycdkstack.Stack {
+  constructor(scope: Construct, id: string, props?: mycdkstack.StackProps, ampprops?: AmplifyHelpers.AmplifyResourceProps) {
     super(scope, id, props);
+    const cat = ampprops.category;
 
-    new cdk.CfnParameter(this, 'env', {
+    new mycdkstack.CfnParameter(this, 'env', {
       type: 'String',
       description: 'Current Amplify CLI env name',
     });
@@ -20,12 +21,12 @@ export class cdkStack extends cdk.Stack {
     
     // SNS Topic
     const topic = new sns.Topic(this, 'NotificationTopic', {
-      topicName: `notifications-${amplifyProjectInfo.projectName}-${cdk.Fn.ref('env')}`
+      topicName: `notifications-${amplifyProjectInfo.projectName}-${mycdkstack.Fn.ref('env')}`
     });
 
     // Publisher Lambda
     const publisher = new lambda.Function(this, 'Publisher', {
-      functionName: `publisher-${amplifyProjectInfo.projectName}-${cdk.Fn.ref('env')}`,
+      functionName: `publisher-${amplifyProjectInfo.projectName}-${mycdkstack.Fn.ref('env')}`,
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'index.handler',
       code: lambda.Code.fromInline(`
@@ -54,7 +55,7 @@ exports.handler = async (event) => {
 
     // Emailer Lambda
     const emailer = new lambda.Function(this, 'Emailer', {
-      functionName: `emailer-${amplifyProjectInfo.projectName}-${cdk.Fn.ref('env')}`,
+      functionName: `emailer-${amplifyProjectInfo.projectName}-${mycdkstack.Fn.ref('env')}`,
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'index.handler',
       code: lambda.Code.fromInline(`
@@ -104,17 +105,17 @@ const sendEmail = async (message) => {
     }));
 
     // Outputs
-    new cdk.CfnOutput(this, 'snsTopicArn', {
+    new mycdkstack.CfnOutput(this, 'snsTopicArn', {
       value: topic.topicArn,
       description: 'SNS Topic ARN for notifications'
     });
 
-    new cdk.CfnOutput(this, 'publisherFunctionName', {
+    new mycdkstack.CfnOutput(this, 'publisherFunctionName', {
       value: publisher.functionName,
       description: 'Publisher Lambda function name'
     });
 
-    new cdk.CfnOutput(this, 'emailerFunctionName', {
+    new mycdkstack.CfnOutput(this, 'emailerFunctionName', {
       value: emailer.functionName,
       description: 'Emailer Lambda function name'
     });
