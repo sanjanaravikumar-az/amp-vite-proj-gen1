@@ -20,8 +20,8 @@ export class cdkStack extends mycdkstack.Stack {
     const amplifyProjectInfo = AmplifyHelpers.getProjectInfo();
     
     const dependencies: AmplifyDependentResourcesAttributes = AmplifyHelpers.addResourceDependency(this,
-      amplifyResourceProps.category,
-      amplifyResourceProps.resourceName,
+      ampprops.category,
+      ampprops.resourceName,
       [{
       category: "function", // api, auth, storage, function, etc.
       resourceName: "<resource-name>" // find the resource at "amplify/backend/<category>/<resourceName>"
