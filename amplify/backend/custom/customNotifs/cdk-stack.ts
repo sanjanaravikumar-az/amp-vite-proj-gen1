@@ -19,14 +19,25 @@ export class cdkStack extends mycdkstack.Stack {
 
     const amplifyProjectInfo = AmplifyHelpers.getProjectInfo();
     
-    const dependencies: AmplifyDependentResourcesAttributes = AmplifyHelpers.addResourceDependency(this,
-      ampprops.category,
-      ampprops.resourceName,
-      [{
-      category: "function", // api, auth, storage, function, etc.
-      resourceName: "<resource-name>" // find the resource at "amplify/backend/<category>/<resourceName>"
-      } /* add more dependencies as needed */] 
-    );
+    const amplifyResources: AmplifyDependentResourcesAttributes = AmplifyHelpers.addResourceDependency(
+    this,
+    ampprops.category,
+    ampprops.resourceName,
+    [
+      { category: 'api', resourceName: 'viteproject' },
+      { category: 'custom', resourceName: 'customResourceb21d659e' },
+      { category: 'custom', resourceName: 'customSQS' }
+    ]
+  );
+
+    const fn = new lambda.Function(this, 'MyFunction', {
+      environment: {
+        GRAPHQL_ENDPOINT: amplifyResources.api.viteproject.GraphQLAPIEndpointOutput,
+        GRAPHQL_API_KEY: amplifyResources.api.viteproject.GraphQLAPIKeyOutput,
+        CUSTOM_RESOURCE_SNS_TOPIC: amplifyResources.custom.customResourceb21d659e.snsTopicArn,
+        SQS_QUEUE_URL: amplifyResources.custom.customSQS.queueUrl
+      }
+    });
 
 
     // SNS Topic
