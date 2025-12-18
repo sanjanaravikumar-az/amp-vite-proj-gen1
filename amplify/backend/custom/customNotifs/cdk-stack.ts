@@ -25,17 +25,16 @@ export class cdkStack extends mycdkstack.Stack {
     ampprops.resourceName,
     [
       { category: 'api', resourceName: 'viteproject' },
-      { category: 'custom', resourceName: 'customResourceb21d659e' },
-      { category: 'custom', resourceName: 'customSQS' }
     ]
   );
 
     const fn = new lambda.Function(this, 'MyFunction', {
+      runtime: lambda.Runtime.NODEJS_18_X,
+      handler: 'index.handler',
+      code: lambda.Code.fromInline('exports.handler = async () => ({ statusCode: 200 });'),
       environment: {
         GRAPHQL_ENDPOINT: amplifyResources.api.viteproject.GraphQLAPIEndpointOutput,
         GRAPHQL_API_KEY: amplifyResources.api.viteproject.GraphQLAPIKeyOutput,
-        CUSTOM_RESOURCE_SNS_TOPIC: amplifyResources.custom.customResourceb21d659e.snsTopicArn,
-        SQS_QUEUE_URL: amplifyResources.custom.customSQS.queueUrl
       }
     });
 
